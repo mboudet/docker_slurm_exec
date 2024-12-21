@@ -8,8 +8,8 @@ ADD apt_genouest_priority /etc/apt/preferences.d/apt_genouest_priority
 # && apt-key adv --keyserver keyserver.ubuntu.com --recv-key 64D3DCC02B3AC23A8D96059FC41FF1AADA6E6518  \
 RUN echo "deb [trusted=yes] https://apt.genouest.org/buster/ buster main" > /etc/apt/sources.list.d/slurm_genouest.list \
  && apt-get -q update \
- && DEBIAN_FRONTEND=noninteractive apt-get -yq --no-install-recommends install \
-     git libslurm39 "slurm-client=23.02.6*" munge locales locales-all \
+ && DEBIAN_FRONTEND=noninteractive apt-get -yq install \
+     git libslurm39 "slurm-client=23.02.6*" "slurm-wlm-basic-plugins=23.02.6*" munge locales locales-all \
  && rm -rf /var/lib/apt/lists/*
 
 ENV LANG=en_US.UTF-8
